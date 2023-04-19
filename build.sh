@@ -1,5 +1,5 @@
 #!/bin/sh
-ver="3.5.0"
+ver="3.5.1"
 
 # Remove installed packages
 rm -r vendor composer.lock
@@ -22,7 +22,7 @@ composer update
 if type 7z > /dev/null; then
     7z a -tzip "mobbex.$ver.mag-2.zip" * -xr!.git -xr!.vscode -xr!tmp -x!*.zip -x!build.sh -x!README.md -x!.gitignore
 elif type zip > /dev/null; then
-    zip mobbex.$ver.mag-2.zip -r * -x .git .vscode tmp *.zip build.sh README.md .gitignore
+    zip mobbex.$ver.mag-2.zip -r * -x .git .vscode tmp/\* *.zip build.sh README.md .gitignore
 fi
 
 # Restore temporal and dep files
